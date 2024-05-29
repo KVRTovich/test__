@@ -1,0 +1,2 @@
+PyGObject==3.44.2
+tzlocal==5.2

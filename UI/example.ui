@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Created with Cambalache 0.10.3 -->
+<interface>
+  <!-- interface-name test.ui -->
+  <requires lib="gtk" version="4.6"/>
+  <object class="GtkApplicationWindow" id="main_window">
+    <property name="resizable">False</property>
+    <property name="default-width">400</property>
+    <property name="default-height">440</property>
+    <property name="title">Test</property>
+    <property name="titlebar">
+      <object class="GtkHeaderBar" id="header_bar">
+        <child type="end">
+          <object class="GtkMenuButton">
+            <property name="primary">True</property>
+            <property name="icon-name">open-menu-symbolic</property>
+            <property name="tooltip-text" translatable="yes">Menu</property>
+            <property name="menu-model">primary_menu</property>
+          </object>
+        </child>
+      </object>
+    </property>
+    <child>
+
+       <object class="GtkGrid" id="main_grid">
+        <property name="baseline-row">0</property>
+        <property name="column-homogeneous">True</property>
+        <property name="halign">baseline-center</property>
+        <property name="height-request">0</property>
+        <property name="orientation">vertical</property>
+        <property name="row-spacing">10</property>
+        <property name="valign">baseline-center</property>
+        <child>
+          <object class="GtkCalendar" id="Calendar">
+            <property name="margin-bottom">10</property>
+            <property name="year">2024</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="column-span">0</property>
+              <property name="row">0</property>
+              <property name="row-span">0</property>
+            </layout>
+          </object>
+        </child>
+
+        <child>
+          <object class="GtkCheckButton" id="autotime">
+            <property name="label">Set Time Automatically</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+
+        <child>
+          <object class="GtkBox" id="main_box">
+            <property name="baseline-child">4</property>
+            <property name="width-request">150</property>
+            <property name="baseline-position">top</property>
+
+            <property name="spacing">8</property>
+            <child>
+              <object class="GtkDropDown" id="hours">
+                <property name="model">
+                  <object class="GtkStringList"></object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkDropDown" id="minutes">
+                <property name="model">
+                  <object class="GtkStringList"></object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkDropDown" id="seconds">
+                <property name="model">
+                  <object class="GtkStringList"></object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkDropDown" id="timezone">
+                  <property name="model">
+                    <object class="GtkStringList"></object>
+                  </property>
+                </object>
+            </child>
+            <layout>
+              <property name="column">0</property>
+              <property name="column-span">0</property>
+              <property name="row">2</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="baseline-child">0</property>
+            <property name="homogeneous">True</property>
+            <property name="spacing">9</property>
+            <property name="valign">baseline-center</property>
+            <child>
+              <object class="GtkButton" id="apply">
+                <property name="label">Apply</property>
+              </object>
+            </child>
+            <layout>
+              <property name="column">0</property>
+              <property name="column-span">0</property>
+              <property name="row">3</property>
+              <property name="row-span">0</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+
+    </child>
+  </object>
+  <menu id="primary_menu">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_Preferences</attribute>
+        <attribute name="action">app.preferences</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_Keyboard Shortcuts</attribute>
+        <attribute name="action">win.show-help-overlay</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_About Time</attribute>
+        <attribute name="action">app.about</attribute>
+      </item>
+    </section>
+  </menu>
+</interface>
